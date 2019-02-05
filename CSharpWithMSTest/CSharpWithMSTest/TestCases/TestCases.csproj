@@ -61,7 +61,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CSharpWithMSTest\Framework.csproj">
+    <ProjectReference Include="..\Framework\Framework.csproj">
       <Project>{149780E1-34D2-4786-B999-094422F2DA8B}</Project>
       <Name>Framework</Name>
     </ProjectReference>

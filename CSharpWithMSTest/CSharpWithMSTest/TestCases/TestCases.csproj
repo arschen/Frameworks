@@ -61,9 +61,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CSharpWithMSTest\CSharpWithMSTest.csproj">
+    <ProjectReference Include="..\CSharpWithMSTest\Framework.csproj">
       <Project>{149780E1-34D2-4786-B999-094422F2DA8B}</Project>
-      <Name>CSharpWithMSTest</Name>
+      <Name>Framework</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpWithMSTest", "CSharpWithMSTest\CSharpWithMSTest.csproj", "{149780E1-34D2-4786-B999-094422F2DA8B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "CSharpWithMSTest\Framework.csproj", "{149780E1-34D2-4786-B999-094422F2DA8B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCases", "TestCases\TestCases.csproj", "{A5D51D0E-4588-4299-8169-E7110FD51686}"
 EndProject

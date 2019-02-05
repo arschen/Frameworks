@@ -17,6 +17,7 @@ namespace Tests
             yield return new object[] { "Firefox" };
         }
 
+        // test with dynamic data taken from GetData()
         [DataTestMethod]
         [DynamicData(nameof(GetData), DynamicDataSourceType.Method)]
         public void DynamicDataTestMethod(string browserName)
@@ -28,6 +29,7 @@ namespace Tests
             automationPracticePage.EnterLastName("Daskalov");
         }
 
+        // second test with data rows instead of dynamic data
         [DataTestMethod]
         [DataRow("Chrome")]
         [DataRow("Firefox")]

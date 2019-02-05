@@ -6,7 +6,7 @@ using OpenQA.Selenium.Remote;
 using System;
 using System.Collections.Generic;
 
-namespace CsharpFramework
+namespace Framework
 {
     public static class Driver
     {

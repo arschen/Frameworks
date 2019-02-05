@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using System.Threading;
 
 namespace Tests
 {
@@ -27,6 +28,7 @@ namespace Tests
         [TestCleanup]
         public void CleanUp()
         {
+            Thread.Sleep(5000);
             driver.Quit();
         }
     }

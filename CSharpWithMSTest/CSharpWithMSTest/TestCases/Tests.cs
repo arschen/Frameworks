@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
 // assembly for parallel execution in mstest
-[assembly: Parallelize(Workers = 4, Scope = ExecutionScope.MethodLevel)]
+[assembly: Parallelize(Workers = 1, Scope = ExecutionScope.MethodLevel)]
 namespace Tests
 {
     [TestClass]
@@ -19,36 +19,22 @@ namespace Tests
 
         [DataTestMethod]
         [DynamicData(nameof(GetData), DynamicDataSourceType.Method)]
-        public void TestMethod1(string browserName)
+        public void DynamicDataTestMethod(string browserName)
         {
             driver = Driver.GetDriver(browserName);
-            driver.Url = "https://google.com";
-        }
-
-        [DataTestMethod]
-        [DynamicData(nameof(GetData), DynamicDataSourceType.Method)]
-        public void TestMethod2(string value)
-        {
-            driver = Driver.GetDriver(value);
-            driver.Url = "https://facebook.com";
+            AutomationPracticePage automationPracticePage = new AutomationPracticePage(driver);
+            automationPracticePage.Navigate();
+            automationPracticePage.EnterFirstName("Plamen");
+            automationPracticePage.EnterLastName("Daskalov");
         }
 
         [DataTestMethod]
         [DataRow("Chrome")]
         [DataRow("Firefox")]
-        public void TestMethod3(string value)
+        public void DataRowTestMethod(string value)
         {
             driver = Driver.GetDriver(value);
             driver.Url = "https://stackoverflow.com";
-        }
-
-        [DataTestMethod]
-        [DataRow("Chrome")]
-        [DataRow("Firefox")]
-        public void TestMethod4(string value)
-        {
-            driver = Driver.GetDriver(value);
-            driver.Url = "https://github.com";
         }
     }
 }

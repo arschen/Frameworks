@@ -1,17 +1,14 @@
 ﻿using OpenQA.Selenium;
 
-namespace CSharpWithMSTest
+namespace Framework
 {
     public class BasePage
     {
         // driver
-        private readonly IWebDriver _driver;
+        public readonly IWebDriver _driver;
 
         // url
-        private readonly string _url = @"page_URL";
-
-        // elements
-        public IWebElement SearchBox => _driver.FindElement(By.Id("element_id"));
+        public string URL = @"page_URL";
 
         // constructor that accepts already initialized driver
         public BasePage(IWebDriver driver)
@@ -20,6 +17,8 @@ namespace CSharpWithMSTest
         }
 
         // methods
-        public void Navigate() => _driver.Navigate().GoToUrl(_url);
+        public void Navigate() => _driver.Navigate().GoToUrl(URL);
+
+        public string GetTitle() { return _driver.Title; }
     }
 }

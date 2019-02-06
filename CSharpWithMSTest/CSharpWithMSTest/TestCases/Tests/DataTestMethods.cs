@@ -45,17 +45,19 @@ namespace Tests
         {
             driver = new Driver("Chrome");
             driver.Manage().Window.Maximize();
+
             MicrosoftPage microsoftPage = new MicrosoftPage(driver);
             microsoftPage.Navigate();
-            microsoftPage.HasLanded();
-            Thread.Sleep(5000);
-            microsoftPage.OpenOfficeLink();
-            Assert.IsTrue(microsoftPage.OfficeIsOpened());
+            Assert.IsTrue(microsoftPage.HasLanded());
+
+            OfficeProductsPage officeProductsPage= microsoftPage.OpenOfficeLink();
+            Assert.IsTrue(officeProductsPage.HasLanded());
+
             microsoftPage.Navigate();
-            microsoftPage.HasLanded();
-            Thread.Sleep(5000);
-            microsoftPage.OpenWindowsLink();
-            Assert.IsTrue(microsoftPage.WindowsIsOpened());
+            Assert.IsTrue(microsoftPage.HasLanded());
+
+            WindowsPage windowsPage = microsoftPage.OpenWindowsLink();
+            Assert.IsTrue(windowsPage.HasLanded());
         }
     }
 }

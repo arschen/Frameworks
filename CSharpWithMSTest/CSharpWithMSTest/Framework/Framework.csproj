@@ -45,6 +45,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="POM\WindowsPage.cs" />
+    <Compile Include="POM\OfficeProductsPage.cs" />
     <Compile Include="POM\MicrosoftPage.cs" />
     <Compile Include="POM\AutomationPracticePage.cs" />
     <Compile Include="Base\BasePage.cs" />

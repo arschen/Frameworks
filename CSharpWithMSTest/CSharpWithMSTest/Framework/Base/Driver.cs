@@ -66,6 +66,21 @@ namespace Framework
             return element;
         }
 
+        public ReadOnlyCollection<IWebElement> FindElementsOnPage(By by, int ms)
+        {
+            ReadOnlyCollection<IWebElement> elements = null;
+            try
+            {
+                WebDriverWait wait = new WebDriverWait(_driver, new TimeSpan(0, 0, 0, 0, ms));
+                elements = wait.Until(_driver => _driver.FindElements(by));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Elements not found! " + e.Message);
+            }
+            return elements;
+        }
+
         public string Url { get => _driver.Url; set => _driver.Url = value; }
 
         public string Title => _driver.Title;

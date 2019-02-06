@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseTest.cs" />
+    <Compile Include="Tests\TestMethods.cs" />
     <Compile Include="Tests\DataTestMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

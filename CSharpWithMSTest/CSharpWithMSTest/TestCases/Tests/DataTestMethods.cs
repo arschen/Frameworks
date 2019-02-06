@@ -1,13 +1,12 @@
 ﻿using Framework;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Threading;
 
-// assembly for parallel execution in mstest
-[assembly: Parallelize(Workers = 1, Scope = ExecutionScope.MethodLevel)]
 namespace Tests
 {
     [TestClass]
-    public class Tests : BaseTest
+    public class DataTestsMethods : BaseTest
     {
 
         // used for DynamicData for DataTestMethod
@@ -22,7 +21,7 @@ namespace Tests
         [DynamicData(nameof(GetData), DynamicDataSourceType.Method)]
         public void DynamicDataTestMethod(string browserName)
         {
-            driver = Driver.GetDriver(browserName);
+            driver = new Driver(browserName);
             AutomationPracticePage automationPracticePage = new AutomationPracticePage(driver);
             automationPracticePage.Navigate();
             automationPracticePage.EnterFirstName("Plamen");
@@ -33,10 +32,30 @@ namespace Tests
         [DataTestMethod]
         [DataRow("Chrome")]
         [DataRow("Firefox")]
-        public void DataRowTestMethod(string value)
+        public void DataRowTestMethod(string browserName)
         {
-            driver = Driver.GetDriver(value);
-            driver.Url = "https://stackoverflow.com";
+            driver = new Driver(browserName)
+            {
+                Url = "https://stackoverflow.com"
+            };
+        }
+
+        [TestMethod]
+        public void MicrosoftPage()
+        {
+            driver = new Driver("Chrome");
+            driver.Manage().Window.Maximize();
+            MicrosoftPage microsoftPage = new MicrosoftPage(driver);
+            microsoftPage.Navigate();
+            microsoftPage.HasLanded();
+            Thread.Sleep(5000);
+            microsoftPage.OpenOfficeLink();
+            Assert.IsTrue(microsoftPage.OfficeIsOpened());
+            microsoftPage.Navigate();
+            microsoftPage.HasLanded();
+            Thread.Sleep(5000);
+            microsoftPage.OpenWindowsLink();
+            Assert.IsTrue(microsoftPage.WindowsIsOpened());
         }
     }
 }

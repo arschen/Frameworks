@@ -5,7 +5,7 @@ namespace Framework
     public class AutomationPracticePage : BasePage
     {
         // constructor invoking base constructor and setting up the name
-        public AutomationPracticePage(IWebDriver driver) : base (driver)
+        public AutomationPracticePage(Driver driver) : base (driver)
         {
             URL = "https://www.toolsqa.com/automation-practice-form/";
         }

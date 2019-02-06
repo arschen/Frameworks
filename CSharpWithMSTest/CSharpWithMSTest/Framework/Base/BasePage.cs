@@ -5,13 +5,13 @@ namespace Framework
     public class BasePage
     {
         // driver
-        public readonly IWebDriver _driver;
+        public readonly Driver _driver;
 
         // url
         public string URL = @"page_URL";
 
         // constructor that accepts already initialized driver
-        public BasePage(IWebDriver driver)
+        public BasePage(Driver driver)
         {
             _driver = driver;
         }
